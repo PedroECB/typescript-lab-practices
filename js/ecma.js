@@ -79,6 +79,9 @@ let carlos = 'Carlos';
 function retornaArray(...args) {
     return args;
 }
+const values = [1, 8, 3, 5, 6];
+console.log(Math.max(1, 8, 3, 5, 6));
+console.log(Math.max(...values));
 const arrayRetornado = retornaArray(1, 4, 5, 2, 8);
 console.log(arrayRetornado.map((e) => e.toLocaleString('currency', {
     style: 'currency',
@@ -106,3 +109,23 @@ function sumArgs(...args) {
     return soma;
 }
 console.log(sumArgs(4, 1, 1));
+// Destructuring (array)
+const caracteristicas = ["Aberto", 1987];
+// const tipo = caracteristicas[0]
+// const ano = caracteristicas[1]
+const [tipo, ano] = caracteristicas;
+console.log(tipo, ano);
+// Destructuring (Objeto)
+const item = {
+    nome: 'SSD 128GB',
+    preco: 677.0
+};
+// const nomeItem = item.nome
+// const precoItem = item.preco
+/*
+    Para utilizarmos o destructuring em objetos, informamos o nome dos atributos do objeto que vamos utilizar
+    seguido das variáveis que irão receber esse valor, em seguida fazemos a atribuição ao objeto que vamos retirar
+    os atributos.
+ */
+const { nome: nomeItem, preco: precoItem } = item;
+console.log(nomeItem, precoItem);

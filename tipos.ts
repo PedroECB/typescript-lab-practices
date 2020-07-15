@@ -136,7 +136,7 @@ console.log(funcionarios)
 console.log(funcionarios.supervisores)
 console.log(funcionarios.baterPonto(50))
 
-
+// Factory
 function criarPessoa(nome:string, idade:number):any{
    return {
        nome: nome,
