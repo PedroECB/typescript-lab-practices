@@ -178,3 +178,33 @@ const item = {
  */
 const {nome: nomeItem, preco:precoItem} = item
 console.log(nomeItem, precoItem)
+
+// Trabalhando com assincronismo
+// Assincronismo utilizando CallBack
+
+// function espera3s(callBack:(dado:string) => void){
+//     setTimeout(()=>{
+//         console.log('Esperei 3 segundos...')
+//     }, 3000)
+// }
+
+// espera3s(function(resultado:string){
+//     console.log(resultado)
+// })
+
+// Assincronismo utilizando Promise
+
+function espera3s(){
+    return new Promise((resolve, reject)=>{
+        setTimeout(()=>{
+            resolve('Esperei 3 segundos...')
+        }, 3000)
+    })
+}
+
+espera3s()
+.then((dado)=> console.log(dado))
+
+fetch('https://swapi.dev/api/people/1')
+.then((dado)=> dado.json())
+.then((dado)=> console.log(dado))
