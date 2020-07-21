@@ -87,3 +87,72 @@ console.log(caneta.resumo());
 console.log(caderno.resumo());
 console.log(caneta.precoComDesconto());
 console.log(caderno.precoComDesconto());
+class Caminhao {
+    constructor(marca, modelo, velocidadeMaxima = 200) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.velocidadeMaxima = velocidadeMaxima;
+        this.velocidadeAtual = 0;
+    }
+    alterarVelocidade(delta) {
+        const novaVelocidade = this.velocidadeAtual + delta;
+        const velocidadeValida = novaVelocidade >= 0 && novaVelocidade <= this.velocidadeMaxima;
+        if (velocidadeValida) {
+            this.velocidadeAtual = novaVelocidade;
+        }
+        else {
+            this.velocidadeAtual = delta > 0 ? this.velocidadeMaxima : 0;
+        }
+        return this.velocidadeAtual;
+    }
+    acelerar() {
+        return this.alterarVelocidade(5);
+    }
+    frear() {
+        return this.alterarVelocidade(-5);
+    }
+} //Fim da classe Caminhão 
+const caminhaoDoLixo = new Caminhao("Mercedes", "30T520", 160);
+console.log(caminhaoDoLixo);
+console.log(caminhaoDoLixo.acelerar());
+console.log(caminhaoDoLixo.acelerar());
+console.log(caminhaoDoLixo.acelerar());
+console.log(caminhaoDoLixo);
+// Testando velocidade máxima do caminhão
+console.log(Array(50).fill(0).forEach(() => caminhaoDoLixo.acelerar()));
+console.log(caminhaoDoLixo);
+Array(50).fill(0).forEach(() => caminhaoDoLixo.frear());
+console.log(caminhaoDoLixo);
+class Carreta extends Caminhao {
+    constructor(marca, velocidadeMaxima) {
+        super('Hyundai', marca, velocidadeMaxima);
+    }
+    acelerar() {
+        return this.alterarVelocidade(20);
+    }
+    frear() {
+        return this.alterarVelocidade(-15);
+    }
+}
+const carretaDoFrete = new Carreta('HR', 130);
+console.log(carretaDoFrete.acelerar());
+console.log(carretaDoFrete.acelerar());
+console.log(carretaDoFrete);
+class Estudante {
+    constructor() {
+        this._idade = 0;
+    }
+    get idade() {
+        console.log(`GetIdade --`);
+        return this._idade;
+    }
+    set idade(valor) {
+        if (valor >= 0 && valor < 130) {
+            this._idade = valor;
+            console.log(`SetIdade: ${this._idade}`);
+        }
+    }
+}
+const maria = new Estudante;
+maria.idade = 13;
+console.log(maria.idade);

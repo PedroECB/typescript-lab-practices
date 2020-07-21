@@ -98,3 +98,86 @@ console.log(caneta.resumo())
 console.log(caderno.resumo())
 console.log(caneta.precoComDesconto())
 console.log(caderno.precoComDesconto())
+
+
+class Caminhao{
+    private velocidadeAtual:number = 0
+
+    constructor(public marca:string, public modelo:string, private velocidadeMaxima:number = 200){
+
+    }
+
+    protected alterarVelocidade(delta:number):number {
+        const novaVelocidade = this.velocidadeAtual + delta
+        const velocidadeValida = novaVelocidade >= 0 && novaVelocidade <= this.velocidadeMaxima
+        
+        if(velocidadeValida){
+            this.velocidadeAtual = novaVelocidade
+        }else{
+           this.velocidadeAtual = delta > 0 ? this.velocidadeMaxima: 0  
+        }
+        return this.velocidadeAtual
+    }
+
+    public acelerar():number{
+        return this.alterarVelocidade(5)
+    }
+    public frear():number{
+        return this.alterarVelocidade(-5)
+    }
+}//Fim da classe Caminhão 
+
+const caminhaoDoLixo = new Caminhao("Mercedes", "30T520", 160)
+console.log(caminhaoDoLixo)
+console.log(caminhaoDoLixo.acelerar())
+console.log(caminhaoDoLixo.acelerar())
+console.log(caminhaoDoLixo.acelerar())
+console.log(caminhaoDoLixo)
+
+// Testando velocidade máxima do caminhão
+console.log(Array(50).fill(0).forEach(()=> caminhaoDoLixo.acelerar()))
+console.log(caminhaoDoLixo)
+
+Array(50).fill(0).forEach(()=> caminhaoDoLixo.frear())
+console.log(caminhaoDoLixo)
+
+
+class Carreta extends Caminhao{
+    constructor(marca:string, velocidadeMaxima:number){
+        super('Hyundai', marca, velocidadeMaxima)
+    }
+    public acelerar():number{
+        return this.alterarVelocidade(20)
+    }
+    public frear():number{
+        return this.alterarVelocidade(-15)
+    }
+}
+
+
+const carretaDoFrete = new Carreta('HR', 130)
+console.log(carretaDoFrete.acelerar())
+console.log(carretaDoFrete.acelerar())
+console.log(carretaDoFrete)
+
+
+class Estudante{
+    private _idade:number = 0
+    
+    get idade():number{
+        console.log(`GetIdade --`)
+        return this._idade
+    }
+
+    set idade(valor:number){
+        if(valor >= 0 && valor < 130){
+            this._idade = valor
+            console.log(`SetIdade: ${this._idade}`)
+        }
+    }
+}
+
+const maria = new Estudante
+maria.idade = 13
+console.log(maria.idade)
+
