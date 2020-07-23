@@ -155,4 +155,54 @@ class Estudante {
 }
 const maria = new Estudante;
 maria.idade = 13;
-console.log(maria.idade);
+// Membros estáticos
+class ProdutoLimpeza {
+    constructor(nome) {
+        this.nome = nome;
+    }
+    exibirNome() {
+        return `Nome do produto: ${this.nome}`;
+    }
+    static exibirInfo() {
+        console.log(`Lote: ${this.numeroLote} - Origem: ${this.origem}`);
+    }
+}
+ProdutoLimpeza.numeroLote = "23345";
+ProdutoLimpeza.origem = "Centro de distribuição de Manaus";
+const atol = new ProdutoLimpeza("Atol limpador");
+// console.log(atol.exibirNome())
+console.log(ProdutoLimpeza.numeroLote);
+console.log(ProdutoLimpeza.origem);
+ProdutoLimpeza.exibirInfo();
+class Animal {
+}
+class Cachorro extends Animal {
+    amamentar() {
+        return `O cachorro está amamentando`;
+    }
+}
+const catchoro = new Cachorro();
+console.log(catchoro.amamentar());
+// Singleton básico
+class Unico {
+    constructor() { }
+    static getInstance() {
+        return Unico.instance;
+    }
+    agora() {
+        return new Date;
+    }
+}
+Unico.instance = new Unico;
+const unico = Unico.getInstance();
+console.log(unico.agora());
+class Aviao {
+    constructor(modelo, prefixo) {
+        this.prefixo = prefixo;
+        this.modelo = modelo;
+    }
+}
+const bufalo = new Aviao('C115', 'AEF98800');
+// bufalo.modelo = 'AENN'
+// bufalo.prefixo = 'AEGF009887'
+console.log(bufalo);

@@ -179,5 +179,73 @@ class Estudante{
 
 const maria = new Estudante
 maria.idade = 13
-console.log(maria.idade)
 
+// Membros estáticos
+class ProdutoLimpeza{
+    static numeroLote:string = "23345"
+    static origem:string = "Centro de distribuição de Manaus"
+    
+    constructor(public nome:string){}
+    
+     exibirNome(){
+        return `Nome do produto: ${this.nome}`
+    }
+
+    static exibirInfo(){
+        console.log(`Lote: ${this.numeroLote} - Origem: ${this.origem}`)
+    }
+}
+
+
+const atol = new ProdutoLimpeza("Atol limpador")
+// console.log(atol.exibirNome())
+console.log(ProdutoLimpeza.numeroLote)
+console.log(ProdutoLimpeza.origem)
+ProdutoLimpeza.exibirInfo()
+
+abstract class Animal{
+    abstract amamentar():string
+}
+
+class Cachorro extends Animal{
+    amamentar():string{
+        return `O cachorro está amamentando`
+    }
+}
+
+const catchoro = new Cachorro()
+console.log(catchoro.amamentar())
+
+
+// Singleton básico
+
+class Unico{
+    private static instance: Unico = new Unico
+    
+    private constructor(){}
+
+    static getInstance(): Unico{
+        return Unico.instance
+    }
+
+    agora(){
+        return new Date
+    }
+}
+
+const unico = Unico.getInstance()
+console.log(unico.agora())
+
+
+class Aviao{
+    public readonly modelo:string
+    
+    constructor(modelo:string, public readonly prefixo:string){
+        this.modelo = modelo
+    }
+}
+
+const bufalo = new Aviao('C115', 'AEF98800')
+// bufalo.modelo = 'AENN'
+// bufalo.prefixo = 'AEGF009887'
+console.log(bufalo)
