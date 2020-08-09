@@ -82,22 +82,22 @@ class SomaBinaria extends OperacaoBinariaGeneric<number, number>{
 console.log(new SomaBinaria(5, 2).executar())
 
 
-class DiferencaEntreDatas extends OperacaoBinariaGeneric<Data, string>{
+// class DiferencaEntreDatas extends OperacaoBinariaGeneric<Data, string>{
     
-    getTime(data:Data):number{
-        let {dia, mes, ano} = data
-        return  new Date(`${mes}/${dia}/${ano}`).getTime()
+//     getTime(data:Data):number{
+//         let {dia, mes, ano} = data
+//         return  new Date(`${mes}/${dia}/${ano}`).getTime()
         
-    }
+//     }
 
-    executar():string{
-        const t1 = this.getTime(this.operando1)
-        const t2 = this.getTime(this.operando2)
-        const diff = Math.abs(t1 - t2)
-        const dias = 1000 * 60 * 60 * 24
-        return `${Math.ceil((diff/dias))} dias de diferença`
-    }
-}
+//     executar():string{
+//         const t1 = this.getTime(this.operando1)
+//         const t2 = this.getTime(this.operando2)
+//         const diff = Math.abs(t1 - t2)
+//         const dias = 1000 * 60 * 60 * 24
+//         return `${Math.ceil((diff/dias))} dias de diferença`
+//     }
+// }
 
 
 
@@ -143,5 +143,27 @@ filaAlunos.imprimir()
 filaAlunos.proximo()
 filaAlunos.imprimir()
 
-
 // Restrições
+
+/**
+ * Utilizando generics é possível criar restrições nos tipos em serão implementados  
+ * Ex: Class Aluno <T extends string> (O tipo que for atrelado aluno só poderá ser de
+ * uma tipagem oriunda do grupo de strings)
+ * 
+ * Exs: Class Aluno <T extends string || number> 
+ */
+
+//  type Par<C, V> = {chave: C, valor: V}
+
+//  class Mapa<C, V>{
+//      private itens:Array<Par<C,V>> = new Array<Par<C,V>>()
+
+//      constructor(){
+//          this.itens = []
+//      }
+//     colocar({chave:C, valor:V}){
+//         this.itens[ca]
+//     }
+//  }
+
+
