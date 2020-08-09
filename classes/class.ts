@@ -1,4 +1,4 @@
-class Data{
+export class Data{
     
     public dia:number
     mes:number
