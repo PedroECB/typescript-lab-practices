@@ -1,0 +1,23 @@
+{
+  "name": "Typescript2",
+  "version": "1.0.0",
+  "description": "---",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PedroECB/typescript-lab-practices.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PedroECB/typescript-lab-practices/issues"
+  },
+  "homepage": "https://github.com/PedroECB/typescript-lab-practices#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
